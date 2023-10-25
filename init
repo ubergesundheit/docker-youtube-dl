@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Check if container runtime is podman
+if [[ "$container" == "podman" ]]; then
+  python3 /usr/local/bin/yt-dlp "$@"
+  exit $?
+fi
+
 # Create dockeruser homedir
 mkdir -p /home/dockeruser
 
